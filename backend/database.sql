@@ -44,8 +44,12 @@ CREATE TABLE smartphone (
   status ENUM ('0', '1', '2') DEFAULT '0',
   stockage int(11) NOT NULL,
   Memory int(11) NOT NULL,
-  val_A_id int(11) NOT NULL,
-  val_M_id int(11) NOT NULL,
-  val_S_id int(11) NOT NULL,
-  val_total_id int(11) NULL
+  val_A_id int(11) UNSIGNED NOT NULL,
+  val_M_id int(11) UNSIGNED NOT NULL,
+  val_S_id int(11) UNSIGNED NOT NULL,
+  val_total_id int(11) UNSIGNED NULL,
+  FOREIGN KEY (val_A_id) REFERENCES `ref_indice`(id),
+  FOREIGN KEY (val_M_id) REFERENCES `ref_memoire`(id),
+  FOREIGN KEY (val_S_id) REFERENCES `ref_stockage`(id),
+  FOREIGN KEY (val_total_id) REFERENCES `category`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
