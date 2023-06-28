@@ -4,7 +4,7 @@ function Informations() {
   return (
     <div className="screen">
       <LeftMenu />
-      <div className="main-menu">t</div>
+      <div className="main-menu">TO DO INFORMATIONS</div>
     </div>
   );
 }
