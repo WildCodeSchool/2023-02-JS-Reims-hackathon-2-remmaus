@@ -49,6 +49,16 @@ const StockageManager = require("./StockageManager");
 models.stockage = new StockageManager();
 models.stockage.setDatabase(pool);
 
+const ModeleManager = require("./ModeleManager");
+
+models.modele = new ModeleManager();
+models.modele.setDatabase(pool);
+
+const SmartphoneManager = require("./SmartphoneManager");
+
+models.smartphone = new SmartphoneManager();
+models.smartphone.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
