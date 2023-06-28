@@ -30,3 +30,22 @@ CREATE TABLE ref_stockage (
   stockage int(11) NOT NULL,
   val_S int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE modele (
+  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name varchar(255) NOT NULL,
+  marque varchar(255) NOT NULL,
+  prix_ref int(11) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE smartphone (
+  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  indice_antutu int(11) NOT NULL,
+  status ENUM ('0', '1', '2') DEFAULT '0',
+  stockage int(11) NOT NULL,
+  Memory int(11) NOT NULL,
+  val_A_id int(11) NOT NULL,
+  val_M_id int(11) NOT NULL,
+  val_S_id int(11) NOT NULL,
+  val_total_id int(11) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
