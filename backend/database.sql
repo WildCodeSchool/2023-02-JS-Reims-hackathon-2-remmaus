@@ -54,18 +54,21 @@ CREATE TABLE modele (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO modele (name, marque, prix_ref) VALUES 
-('APPLE', 'iphone6', 250);
+('iphone6', 'APPLE', 250);
 
 CREATE TABLE smartphone (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  modele_id int(11) UNSIGNED NOT NULL,
   indice_antutu int(11) NOT NULL,
-  status ENUM ('0', '1', '2') DEFAULT '0',
+  status ENUM ('0', '1', '2') NOT NULL DEFAULT '0',
   stockage int(11) NOT NULL,
   Memory int(11) NOT NULL,
+  part_number varchar(255) NOT NULL,
   val_A_id int(11) UNSIGNED NOT NULL,
   val_M_id int(11) UNSIGNED NOT NULL,
   val_S_id int(11) UNSIGNED NOT NULL,
-  val_total_id int(11) UNSIGNED NULL,
+  val_total_id int(11) UNSIGNED NOT NULL,
+  FOREIGN KEY (modele_id) REFERENCES `modele`(id),
   FOREIGN KEY (val_A_id) REFERENCES `ref_indice`(id),
   FOREIGN KEY (val_M_id) REFERENCES `ref_memoire`(id),
   FOREIGN KEY (val_S_id) REFERENCES `ref_stockage`(id),

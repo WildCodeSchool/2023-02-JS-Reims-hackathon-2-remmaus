@@ -17,6 +17,12 @@ class smartphoneManager extends AbstractManager {
       [smartphone.title, smartphone.id]
     );
   }
+
+  findAll() {
+    return this.database.query(
+      `SELECT smartphone.id, modele.marque, modele.name AS modele, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.Memory AS RAM, smartphone.stockage, category.name AS category, smartphone.part_number FROM smartphone JOIN category ON category.id = smartphone.val_total_id JOIN modele ON modele.id = smartphone.modele_id`
+    );
+  }
 }
 
 module.exports = smartphoneManager;
