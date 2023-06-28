@@ -1,10 +1,11 @@
+import InformationForm from "../components/InformationForm";
 import LeftMenu from "../components/LeftMenu";
 
 function Informations() {
   return (
     <div className="screen">
       <LeftMenu />
-      <div className="main-menu">TO DO INFORMATIONS</div>
+      <InformationForm />
     </div>
   );
 }

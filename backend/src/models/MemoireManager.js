@@ -5,16 +5,16 @@ class MemoireManager extends AbstractManager {
     super({ table: "ref_memoire" });
   }
 
-  insert(ref_memoire) {
+  insert(memoire) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      indice.title,
+      memoire.title,
     ]);
   }
 
-  update(ref_memoire) {
+  update(memoire) {
     return this.database.query(
       `update ${this.table} set title = ? where id = ?`,
-      [indice.title, indice.id]
+      [memoire.title, memoire.id]
     );
   }
 }

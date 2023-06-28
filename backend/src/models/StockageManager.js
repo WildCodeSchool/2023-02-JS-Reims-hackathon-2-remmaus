@@ -5,16 +5,16 @@ class StockageManager extends AbstractManager {
     super({ table: "ref_stockage" });
   }
 
-  insert(ref_stockage) {
+  insert(stockage) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [
       stockage.title,
     ]);
   }
 
-  update(ref_stockage) {
+  update(stockage) {
     return this.database.query(
       `update ${this.table} set title = ? where id = ?`,
-      [indice.title, indice.id]
+      [stockage.title, stockage.id]
     );
   }
 }
