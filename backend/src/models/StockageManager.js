@@ -1,22 +1,22 @@
 const AbstractManager = require("./AbstractManager");
 
-class ValeurrefManager extends AbstractManager {
+class StockageManager extends AbstractManager {
   constructor() {
-    super({ table: "item" });
+    super({ table: "ref_stockage" });
   }
 
-  insert(item) {
+  insert(ref_stockage) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      item.title,
+      stockage.title,
     ]);
   }
 
-  update(item) {
+  update(ref_stockage) {
     return this.database.query(
       `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      [indice.title, indice.id]
     );
   }
 }
 
-module.exports = ValeurrefManager;
+module.exports = StockageManager;

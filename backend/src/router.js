@@ -18,12 +18,28 @@ router.put("/category/:id", categoryControllers.edit);
 router.post("/category/:id", categoryControllers.add);
 router.delete("/items/:id", categoryControllers.destroy);
 
-const valeurrefControllers = require("./controllers/valeur_refControllers");
+const indiceControllers = require("./controllers/indiceControllers");
 
-router.get("/valeur_ref", valeurrefControllers.browse);
-router.get("/valeur_ref/:id", valeurrefControllers.read);
-router.put("/valeur_ref/:id", valeurrefControllers.edit);
-router.post("/valeur_ref/:id", valeurrefControllers.add);
-router.delete("/valeur_ref/:id", valeurrefControllers.destroy);
+router.get("/ref_indice", indiceControllers.browse);
+router.get("/ref_indice/:id", indiceControllers.read);
+router.put("/ref_indice/:id", indiceControllers.edit);
+router.post("/ref_indice/:id", indiceControllers.add);
+router.delete("/ref_indice/:id", indiceControllers.destroy);
+
+const memoireControllers = require("./controllers/memoireControllers");
+
+router.get("/ref_memoire", memoireControllers.browse);
+router.get("/ref_memoire/:id", memoireControllers.read);
+router.put("/ref_memoire/:id", memoireControllers.edit);
+router.post("/ref_memoire/:id", memoireControllers.add);
+router.delete("/ref_memoire/:id", memoireControllers.destroy);
+
+const stockageControllers = require("./controllers/stockageControllers");
+
+router.get("/ref_stockage", stockageControllers.browse);
+router.get("/ref_stockage/:id", stockageControllers.read);
+router.put("/ref_stockage/:id", stockageControllers.edit);
+router.post("/ref_stockage/:id", stockageControllers.add);
+router.delete("/ref_stockage/:id", stockageControllers.destroy);
 
 module.exports = router;
