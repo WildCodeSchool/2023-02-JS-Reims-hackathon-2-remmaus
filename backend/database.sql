@@ -53,6 +53,9 @@ CREATE TABLE modele (
   prix_ref int(11) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO modele (name, marque, prix_ref) VALUES 
+('APPLE', 'iphone6', 250);
+
 CREATE TABLE smartphone (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   indice_antutu int(11) NOT NULL,
