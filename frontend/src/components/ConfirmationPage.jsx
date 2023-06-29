@@ -9,7 +9,6 @@ function ConfirmationPage() {
     const fakePhoneInfo = {
       marque: "Samsung",
       modèle: "Galaxy S20",
-      partNumber: "ABC123",
       ram: "8 Go",
       stockage: "128 Go",
       indiceAntutu: "300000",
