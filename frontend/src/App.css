@@ -6,16 +6,27 @@ body {
   margin: 0;
   height: 100vh;
 }
+.header {
+  background-color: #002743;
+}
 
 .screen {
   display: flex;
   flex-direction: row;
+}
+.logo {
+  height: 4rem;
+  width: auto;
 }
 
 .logo {
   height: 5rem;
   width: 5rem;
   margin-top: 2rem;
+}
+.title {
+  color: #5ba87e;
+  font-size: xx-large;
 }
 
 .left-menu {
@@ -111,6 +122,19 @@ form .form-row {
   transform-origin: center;
   transition: transform 0.3s ease;
 }
+.buttons {
+  margin-top: 10rem;
+}
+
+.greenButton {
+  background-color: #002743;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
 
 .titleMainMenu {
   margin: 5rem;
@@ -167,6 +191,9 @@ form .form-row {
   color: #5ba87e;
 }
 
+.greenButton:hover {
+  background-color: #5ba87e;
+}
 .select-label {
   top: -20px;
 }
