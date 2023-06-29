@@ -38,9 +38,20 @@ body {
   align-items: center;
 }
 
+.left-menu-abso {
+  height: 100vh;
+  width: 20rem;
+  background-color: #002743;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main-menu {
   height: 100vh;
   width: 80%;
+
   background: url(../src/assets/logofond.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -75,7 +86,7 @@ form .form-row .input-data {
   position: relative;
 }
 form .form-row {
-  height: 60px;
+  height: 80px;
 }
 .input-data input {
   display: block;
@@ -324,6 +335,57 @@ select {
   margin-bottom: 5px;
 }
 
+.arrow,
+.arrow-open {
+  display: none;
+}
+
+.right-arrow {
+  height: 20px;
+}
+
+.title_member {
+  font-size: 18px;
+}
+
+/* Espace de dialogue */
+
+.dialogue-space {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fcfcfc;
+}
+
+.dialogue-message {
+  background-color: #e3f3f7;
+  height: 10vh;
+  width: 150vh;
+  margin: 1rem;
+}
+
+.dialogue-border {
+  background-color: #002743;
+  box-sizing: 2rem;
+}
+
+.dialogue-input {
+  height: 8vh;
+  width: 154vh;
+  background-color: white;
+}
+
+.dialogue-sender {
+  height: 3vh;
+  width: 50%;
+}
+
+.dialogue-input {
+  background-color: rgb(243, 243, 248);
+}
+
 .search-page {
   text-align: center;
   padding: 20px;
@@ -360,5 +422,25 @@ select {
 @media screen and (max-width: 600px) {
   .left-menu {
     display: none;
+  }
+  .left-menu-abso {
+    position: absolute;
+    z-index: 20;
+  }
+  .main-menu {
+    width: 100%;
+  }
+  .confirmation-page {
+    width: 100%;
+  }
+  .arrow,
+  .arrow-open {
+    display: block;
+    position: absolute;
+    top: 50vh;
+  }
+  .arrow-open {
+    right: 0;
+    transform: rotateY(180deg);
   }
 }
