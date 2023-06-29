@@ -54,7 +54,7 @@ CREATE TABLE modele (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO modele (name, marque, prix_ref) VALUES 
-('iphone6', 'APPLE', 250);
+('iphone6', 'APPLE', 250),('Galaxy S20+', 'SAMSUNG', 250), ('Redmi A2','Xiaomi',250),('iphone12', 'APPLE', 250);
 
 CREATE TABLE smartphone (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -69,7 +69,7 @@ CREATE TABLE smartphone (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO smartphone (modele_id, indice_antutu, stockage, memory, ponderation, total_pondere) VALUES 
-(1, 50000, 16, 6, 0.3, 50),
+(1, 4560, 16, 6, 0.3, 50),
 (1, 50000, 32, 8, 0.5, 75);
 
 CREATE TABLE user (
