@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
   const [marques, setMarques] = useState([]);
   const [modeles, setModeles] = useState([]);
   const [selectMarque, setSelectMarque] = useState();
+  const modelRef = useRef();
+  const indiceRef = useRef();
+  const stockageRef = useRef();
+  const memoireRef = useRef();
+  const ponderationRef = useRef();
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
@@ -26,7 +31,36 @@ function CategorizeForm() {
       <h1 className="titleMainMenu">
         Commencer l'Enregistrement de nouveaux téléphones
       </h1>
-      <form action="#" className="form-categorize">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          fetch(
+            `${
+              import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+            }/smartphones`,
+            {
+              method: "post",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({
+                modele_id: modelRef.current.value,
+                indice: indiceRef.current.value,
+                stockage: stockageRef.current.value,
+                memoire: memoireRef.current.value,
+                ponderation: ponderationRef.current.value,
+              }),
+            }
+          ).then((response) => {
+            if (response.status === 201) {
+              alert(true);
+            } else {
+              alert(false);
+            }
+          });
+        }}
+        className="form-categorize"
+      >
         <div className="form-row">
           <div className="input-data">
             {/* <input type="text" name="modele" id="modele" required />
@@ -49,7 +83,7 @@ function CategorizeForm() {
               ))}
             </select>
             {selectMarque && (
-              <select name="modele" id="modele">
+              <select ref={modelRef} name="modele" id="modele">
                 <option value="" selected>
                   -- Select modele --
                 </option>
@@ -67,7 +101,7 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="ram">
               RAM
             </label>
-            <select name="ram" id="ram">
+            <select ref={memoireRef} name="ram" id="ram">
               <option value="" selected>
                 -- Select Option --
               </option>
@@ -87,7 +121,7 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="stockage">
               Stockage
             </label>
-            <select name="stockage" id="stockage">
+            <select ref={stockageRef} name="stockage" id="stockage">
               <option value="" selected>
                 -- Select Option --
               </option>
@@ -102,7 +136,13 @@ function CategorizeForm() {
             </select>
           </div>
           <div className="input-data">
-            <input type="text" name="indice" id="indice" required />
+            <input
+              ref={indiceRef}
+              type="text"
+              name="indice"
+              id="indice"
+              required
+            />
             <div className="underline" />
             <label htmlFor="indice">Indice Antutu</label>
           </div>
@@ -111,7 +151,12 @@ function CategorizeForm() {
           <label className="select-label" htmlFor="state">
             Etat du téléphone
           </label>
-          <select name="state" id="state" className="select-bottom">
+          <select
+            ref={ponderationRef}
+            name="state"
+            id="state"
+            className="select-bottom"
+          >
             <option value="" selected>
               -- Select Option --
             </option>
@@ -122,7 +167,7 @@ function CategorizeForm() {
             <option value="1">Reconditionné</option>
           </select>
         </div>
-        <button type="button" className="linkMenu">
+        <button type="submit" className="linkMenu">
           Confirmez l'enregistrement
         </button>
       </form>
