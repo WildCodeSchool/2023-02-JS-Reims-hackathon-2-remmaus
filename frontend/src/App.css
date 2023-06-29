@@ -67,7 +67,6 @@ body {
 }
 .main-menu form .form-row {
   display: flex;
-  margin: 16px 0;
 }
 form .form-row .input-data {
   width: 100%;
@@ -76,7 +75,7 @@ form .form-row .input-data {
   position: relative;
 }
 form .form-row {
-  height: 70px;
+  height: 60px;
 }
 .input-data input {
   display: block;
@@ -290,4 +289,12 @@ select {
   position: absolute;
   left: 3em;
   top: 2.5em;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+  .left-menu {
+    display: none;
+  }
 }
