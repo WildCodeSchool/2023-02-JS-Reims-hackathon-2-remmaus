@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LeftMenu from "./LeftMenu";
+import QrCode from "./QrCode";
 
 function ConfirmationPage() {
   const [phoneInfo, setPhoneInfo] = useState(null);
@@ -33,6 +34,7 @@ function ConfirmationPage() {
             </p>
           </div>
         )}
+        <QrCode />
       </div>
     </div>
   );
