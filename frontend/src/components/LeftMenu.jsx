@@ -4,7 +4,7 @@ function LeftMenu() {
   return (
     <div className="left-menu">
       <Link to="/">
-        <img className="logo" src="../src/assets/logoremmaus.png" alt="" />
+        <img className="logo" src="../src/images/logoremmaus.png" alt="" />
       </Link>
       <Link to="/categorize">
         <button type="button" className="linkMenu">
