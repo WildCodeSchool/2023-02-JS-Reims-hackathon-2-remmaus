@@ -2,6 +2,12 @@ const express = require("express");
 
 const router = express.Router();
 
+const {
+  checkIndice,
+  checkMemoire,
+  checkStockage,
+} = require("./services/middleware");
+
 const itemControllers = require("./controllers/itemControllers");
 
 router.get("/items", itemControllers.browse);
@@ -55,7 +61,21 @@ const smartphoneControllers = require("./controllers/smartphoneControllers");
 router.get("/smartphones", smartphoneControllers.browse);
 router.get("/smartphones/:id", smartphoneControllers.read);
 router.put("/smartphones/:id", smartphoneControllers.edit);
-router.post("/smartphones", smartphoneControllers.add);
+router.post(
+  "/smartphones",
+  checkIndice,
+  checkMemoire,
+  checkStockage,
+  smartphoneControllers.add
+);
 router.delete("/smartphones/:id", smartphoneControllers.destroy);
+
+const usersControllers = require("./controllers/usersControllers");
+
+router.get("/users", usersControllers.browse);
+router.get("/users/:id", usersControllers.read);
+router.put("/users/:id", usersControllers.edit);
+router.post("/users", usersControllers.add);
+router.delete("/users/:id", usersControllers.destroy);
 
 module.exports = router;
