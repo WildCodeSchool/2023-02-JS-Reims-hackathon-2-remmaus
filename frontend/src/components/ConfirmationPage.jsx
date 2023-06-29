@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import LeftMenu from "./LeftMenu";
+import QrCode from "./QrCode";
 
 function ConfirmationPage() {
-  const [phoneInfo, setPhoneInfo] = useState(null);
-
+  const { id } = useParams();
+  const [smartphone, setSmartphone] = useState([]);
   useEffect(() => {
-    const fakePhoneInfo = {
-      marque: "Samsung",
-      modèle: "Galaxy S20",
-      partNumber: "ABC123",
-      ram: "8 Go",
-      stockage: "128 Go",
-      indiceAntutu: "300000",
-    };
-
-    setPhoneInfo(fakePhoneInfo);
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+      }/smartphones/${id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setSmartphone(data);
+      });
   }, []);
 
   return (
-    <div className="confirmation-page">
-      <h1>Enregistrement terminé</h1>
-      {phoneInfo && (
-        <div className="phone-info">
-          <h2>Résumé des données du téléphone enregistré :</h2>
-          <p className="phone-info-item">Marque : {phoneInfo.marque}</p>
-          <p className="phone-info-item">Modèle : {phoneInfo.modèle}</p>
-          <p className="phone-info-item">RAM : {phoneInfo.ram}</p>
-          <p className="phone-info-item">Stockage : {phoneInfo.stockage}</p>
-          <p className="phone-info-item">
-            Indice Antutu : {phoneInfo.indiceAntutu}
-          </p>
-        </div>
-      )}
+    <div className="screen">
+      <LeftMenu />
+      <div className="confirmation-page">
+        <h1>Enregistrement terminé</h1>
+        {smartphone && (
+          <div className="phone-info">
+            <h2>Résumé des données du téléphone enregistré :</h2>
+            <p className="phone-info-item">Marque : {smartphone.marque}</p>
+            <p className="phone-info-item">Modèle : {smartphone.name}</p>
+            <p className="phone-info-item">RAM : {smartphone.memory}</p>
+            <p className="phone-info-item">Stockage : {smartphone.stockage}</p>
+            <p className="phone-info-item">
+              Indice Antutu : {smartphone.antutu}
+            </p>
+          </div>
+        )}
+        <QrCode />
+      </div>
     </div>
   );
 }
