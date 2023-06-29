@@ -120,7 +120,7 @@ function CategorizeForm() {
                       {modele.name}
                     </option>
                   ))}
-                <option value="new">-- New Modele --</option>
+                {/* <option value="new">-- New Modele --</option> */}
               </select>
             )}
             {selectMarque === "new" || selectModele === "new" ? (
@@ -130,7 +130,7 @@ function CategorizeForm() {
                   type="text"
                   placeholder="New Modele"
                 />
-                {/* <input ref={prixRef} type="text" placeholder="prix ref" /> */}
+                <input ref={prixRef} type="text" placeholder="prix ref" />
               </>
             ) : (
               ""
