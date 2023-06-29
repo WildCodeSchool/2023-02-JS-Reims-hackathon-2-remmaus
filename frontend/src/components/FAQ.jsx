@@ -13,7 +13,8 @@ function FAQ() {
     {
       id: 2,
       question: "Comment enregistrer un téléphone?",
-      answer: "Réponse à la question 2.",
+      answer:
+        "Pour enregistrer un téléphone, suivez ces étapes : Cliquez sur le bouton 'Enregistrer un téléphone', remplissez les informations demandées telles que la marque, le modèle, la capacité de stockage, etc.",
     },
     {
       id: 3,
@@ -44,7 +45,7 @@ function FAQ() {
   return (
     <div className="FAQ">
       <header className="header">
-        <img src="logo.png" alt="Logo" className="logo" />
+        <img src="../src/images/logoremmaus.png" alt="Logo" className="logo" />
       </header>
       <div className="content">
         <h1 className="title">FAQ</h1>

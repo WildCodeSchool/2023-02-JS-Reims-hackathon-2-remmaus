@@ -1,7 +1,6 @@
 import Counter from "../components/Counter";
 import logo from "../assets/logo.svg";
 import Accueil from "../components/Accueil";
-import FAQ from "../components/FAQ";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
 
       <Counter />
       <Accueil />
-      <FAQ />
 
       <p>
         Edit <code>App.jsx</code> and save to test HMR updates.
