@@ -8,27 +8,68 @@ function CategorizeForm() {
       <form action="#" className="form-categorize">
         <div className="form-row">
           <div className="input-data">
-            <input type="text" required />
+            <input type="text" name="modele" id="modele" required />
             <div className="underline" />
-            <label htmlFor="">Modèle</label>
+            <label htmlFor="modele">Modèle</label>
           </div>
           <div className="input-data">
-            <input type="text" required />
-            <div className="underline" />
-            <label htmlFor="">RAM</label>
+            <label className="select-label" htmlFor="ram">
+              RAM
+            </label>
+            <select name="ram" id="ram">
+              <option value="" selected>
+                -- Select Option --
+              </option>
+              <option value="1">1 Go</option>
+              <option value="2">2 Go</option>
+              <option value="3">3 Go</option>
+              <option value="4">4 Go</option>
+              <option value="6">6 Go</option>
+              <option value="8">8 Go</option>
+              <option value="12">12 Go</option>
+              <option value="16">16 Go</option>
+            </select>
           </div>
         </div>
         <div className="form-row">
           <div className="input-data">
-            <input type="text" required />
-            <div className="underline" />
-            <label htmlFor="">Stockage</label>
+            <label className="select-label" htmlFor="stockage">
+              Stockage
+            </label>
+            <select name="stockage" id="stockage">
+              <option value="" selected>
+                -- Select Option --
+              </option>
+              <option value="8">8 Go</option>
+              <option value="16">16 Go</option>
+              <option value="32">32 Go</option>
+              <option value="64">64 Go</option>
+              <option value="128">128 Go</option>
+              <option value="256">256 Go</option>
+              <option value="512">512 Go</option>
+              <option value="1024">1024 Go</option>
+            </select>
           </div>
           <div className="input-data">
-            <input type="text" required />
+            <input type="text" name="indice" id="indice" required />
             <div className="underline" />
-            <label htmlFor="">Indice Antutu</label>
+            <label htmlFor="indice">Indice Antutu</label>
           </div>
+        </div>
+        <div className="form-row">
+          <label className="select-label" htmlFor="state">
+            Etat du téléphone
+          </label>
+          <select name="state" id="state" className="select-bottom">
+            <option value="" selected>
+              -- Select Option --
+            </option>
+            <option value="-100">DEEE</option>
+            <option value="-50">Réparable</option>
+            <option value="-10">Bloqué</option>
+            <option value="-5">Reconditionnable</option>
+            <option value="0">Reconditionné</option>
+          </select>
         </div>
         <button type="button" className="linkMenu">
           Confirmez l'enregistrement
