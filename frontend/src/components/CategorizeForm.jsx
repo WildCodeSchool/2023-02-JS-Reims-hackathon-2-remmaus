@@ -1,5 +1,17 @@
+import { useEffect, useState } from "react";
+
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
+  const [modeles, setModeles] = useState([]);
+  useEffect(() => {
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/modeles`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setModeles(data);
+      });
+  }, []);
   return (
     <div className="main-menu">
       <h1 className="titleMainMenu">
@@ -8,9 +20,21 @@ function CategorizeForm() {
       <form action="#" className="form-categorize">
         <div className="form-row">
           <div className="input-data">
-            <input type="text" name="modele" id="modele" required />
-            <div className="underline" />
-            <label htmlFor="modele">Modèle</label>
+            {/* <input type="text" name="modele" id="modele" required />
+            <div className="underline" /> */}
+            <label className="select-label" htmlFor="modele">
+              Modèle
+            </label>
+            <select name="modele" id="modele">
+              <option value="" selected>
+                -- Select Option --
+              </option>
+              {modeles.map((modele) => (
+                <option key={modele.id} value="modele">
+                  {modele.marque}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="input-data">
             <label className="select-label" htmlFor="ram">
