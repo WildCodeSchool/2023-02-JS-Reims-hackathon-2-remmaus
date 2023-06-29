@@ -38,6 +38,17 @@ class smartphoneManager extends AbstractManager {
       JOIN category ON category.val_total_min <= (ref_stockage.val_S + ref_memoire.val_M + ref_indice.val_A) AND category.val_total_max >= (ref_stockage.val_S+ref_memoire.val_M+ref_indice.val_A)`
     );
   }
+
+  find(id) {
+    return this.database.query(
+      `SELECT smartphone.id, modele.marque, modele.name, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone 
+    JOIN modele ON modele.id = smartphone.modele_id
+    JOIN ref_indice ON ref_indice.antutu_min <= smartphone.indice_antutu AND ref_indice.antutu_max >= smartphone.indice_antutu
+    JOIN ref_stockage ON ref_stockage.stockage = smartphone.stockage JOIN ref_memoire ON ref_memoire.mem = smartphone.Memory
+    JOIN category ON category.val_total_min <= (ref_stockage.val_S + ref_memoire.val_M + ref_indice.val_A) AND category.val_total_max >= (ref_stockage.val_S+ref_memoire.val_M+ref_indice.val_A) where smartphone.id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = smartphoneManager;
