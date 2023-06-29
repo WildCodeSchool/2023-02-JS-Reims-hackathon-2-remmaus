@@ -1,10 +1,14 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/self-closing-comp */
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function LeftMenu() {
+  const [menu, setMenu] = useState(false);
   return (
     <>
-      <div className="left-menu">
+      <div className={menu ? "left-menu-abso" : "left-menu"}>
         <Link to="/">
           <img className="logo" src="../src/images/logoremmaus.png" alt="" />
         </Link>
@@ -27,7 +31,14 @@ function LeftMenu() {
           Aurélien / Aylin / Flavien / Julien / Nils{" "}
         </h6>
       </div>
-      <div className="arrow"></div>
+      <div
+        className={menu ? "arrow-open" : "arrow"}
+        onClick={() => {
+          setMenu(!menu);
+        }}
+      >
+        <img className="right-arrow" alt="" src="../src/images/arrow.png" />
+      </div>
     </>
   );
 }

@@ -38,9 +38,20 @@ body {
   align-items: center;
 }
 
+.left-menu-abso {
+  height: 100vh;
+  width: 20rem;
+  background-color: #002743;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main-menu {
   height: 100vh;
   width: 80%;
+
   background: url(../src/assets/logofond.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -324,8 +335,37 @@ select {
   margin-bottom: 5px;
 }
 
+.arrow,
+.arrow-open {
+  display: none;
+}
+
+.right-arrow {
+  height: 20px;
+}
+
 @media screen and (max-width: 600px) {
   .left-menu {
     display: none;
+  }
+  .left-menu-abso {
+    position: absolute;
+    z-index: 20;
+  }
+  .main-menu {
+    width: 100%;
+  }
+  .confirmation-page {
+    width: 100%;
+  }
+  .arrow,
+  .arrow-open {
+    display: block;
+    position: absolute;
+    top: 50vh;
+  }
+  .arrow-open {
+    right: 0;
+    transform: rotateY(180deg);
   }
 }
