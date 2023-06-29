@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
@@ -15,6 +15,7 @@ function CategorizeForm() {
   const modelNameRef = useRef(null);
   const marqueNameRef = useRef(null);
   const prixRef = useRef(null);
+  const nav = useNavigate();
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
@@ -72,6 +73,7 @@ function CategorizeForm() {
           ).then((response) => {
             if (response.status === 201) {
               // alert(true);
+              nav("/categorize/confirmation");
             } else {
               // alert(false);
             }
@@ -209,11 +211,9 @@ function CategorizeForm() {
             <option value="1">Reconditionné</option>
           </select>
         </div>
-        <Link to="/categorize/confirmation">
-          <button type="submit" className="linkMenu">
-            Confirmez l'enregistrement
-          </button>
-        </Link>
+        <button type="submit" className="linkMenu">
+          Confirmez l'enregistrement
+        </button>
       </form>
     </div>
   );
