@@ -68,9 +68,9 @@ CREATE TABLE smartphone (
   FOREIGN KEY (modele_id) REFERENCES `modele`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `smartphone` (`modele_id`, `indice_antutu`, `stockage`, `memory`, `ponderation`, `total_pondere`) VALUES 
-('1', '50000', '16', '6', '0.3', '50')
-('1', '50000', '32', '8', '0.5', '75');
+INSERT INTO smartphone (modele_id, indice_antutu, stockage, memory, ponderation, total_pondere) VALUES 
+(1, 50000, 16, 6, 0.3, 50),
+(1, 50000, 32, 8, 0.5, 75);
 
 CREATE TABLE user (
   id INT(11) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
