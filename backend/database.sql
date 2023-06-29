@@ -31,8 +31,13 @@ CREATE TABLE ref_memoire (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO ref_memoire (mem, val_M) VALUES 
+(1, 30),
+(2, 30),
+(3, 30),
+(4, 30),
 (6, 30),
 (8, 40),
+(12, 40),
 (16, 54);
 
 CREATE TABLE ref_stockage (
@@ -42,9 +47,14 @@ CREATE TABLE ref_stockage (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO ref_stockage (stockage, val_S) VALUES 
+(8, 31),
 (16, 31),
 (32, 45),
-(64, 66);
+(64, 66),
+(128, 66),
+(256, 66),
+(512, 66),
+(1024, 66);
 
 CREATE TABLE modele (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,

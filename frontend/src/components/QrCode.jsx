@@ -9,37 +9,28 @@ function QrCode() {
   return (
     <div>
       <h1 className="titleMainMenu">QR Code</h1>
-      <center>
-        <div className="input-data">
-          <input
-            type="number"
-            onChange={(e) =>
-              setSize(parseInt(e.target.value === "" ? 0 : e.target.value, 10))
-            }
-            placeholder="Taille du Qr-code: 256"
-          />
-          <div className="underline" />
-        </div>
-        <br />
-        {value && (
-          <QRCode
-            title="smartphone QR code"
-            value={url}
-            bgColor="#FFFFFF"
-            fgColor="#000000"
-            size={size === "" ? 0 : size}
-          />
-        )}
-        <br />
-        <br />
-        <button
-          type="button"
-          onClick={() => window.print()}
-          className="linkMenu"
-        >
-          Imprimer le QR code
-        </button>
-      </center>
+      <div className="input-data">
+        <input
+          type="number"
+          onChange={(e) =>
+            setSize(parseInt(e.target.value === "" ? 0 : e.target.value, 10))
+          }
+          placeholder="Taille du Qr-code: 256"
+        />
+        <div className="underline" />
+      </div>
+      {value && (
+        <QRCode
+          title="smartphone QR code"
+          value={url}
+          bgColor="#FFFFFF"
+          fgColor="#000000"
+          size={size === "" ? 0 : size}
+        />
+      )}
+      <button type="button" onClick={() => window.print()} className="linkMenu">
+        Imprimer le QR code
+      </button>
     </div>
   );
 }
