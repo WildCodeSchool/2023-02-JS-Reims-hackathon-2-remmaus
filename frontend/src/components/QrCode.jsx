@@ -10,21 +10,17 @@ function QrCode() {
     <div className="main-menu">
       <h1 className="titleMainMenu">QR Code</h1>
       <center>
-        <br />
-        <br />
         <div className="input-data">
           <input
             type="number"
             onChange={(e) =>
               setSize(parseInt(e.target.value === "" ? 0 : e.target.value, 10))
             }
-            placeholder="Taille du Qr-code"
+            placeholder="Taille du Qr-code: 256"
           />
           <div className="underline" />
-          <label htmlFor="">QR Code Size</label>
         </div>
         <br />
-
         {value && (
           <QRCode
             title="smartphone QR code"
