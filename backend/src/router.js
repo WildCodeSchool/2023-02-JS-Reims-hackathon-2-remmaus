@@ -58,4 +58,12 @@ router.put("/smartphones/:id", smartphoneControllers.edit);
 router.post("/smartphones", smartphoneControllers.add);
 router.delete("/smartphones/:id", smartphoneControllers.destroy);
 
+const usersControllers = require("./controllers/usersControllers");
+
+router.get("/users", usersControllers.browse);
+router.get("/users/:id", usersControllers.read);
+router.put("/users/:id", usersControllers.edit);
+router.post("/users", usersControllers.add);
+router.delete("/users/:id", usersControllers.destroy);
+
 module.exports = router;
