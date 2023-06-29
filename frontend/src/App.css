@@ -317,3 +317,45 @@ select {
   font-size: 16px;
   margin-bottom: 5px;
 }
+
+.title_member {
+  font-size: 18px;
+}
+
+/* Espace de dialogue */
+
+.dialogue-space {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fcfcfc;
+}
+
+.dialogue-message {
+  background-color: #e3f3f7;
+  height: 10vh;
+  width: 150vh;
+  margin: 1rem;
+}
+
+.dialogue-border {
+  background-color: #002743;
+  box-sizing: 2rem;
+}
+
+.dialogue-input {
+  height: 8vh;
+  width: 154vh;
+  background-color: white;
+}
+
+.dialogue-sender {
+  height: 3vh;
+  width: 50%;
+}
+
+.dialogue-input {
+  background-color: rgb(243, 243, 248);
+}
