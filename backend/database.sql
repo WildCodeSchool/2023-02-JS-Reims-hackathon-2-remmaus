@@ -20,8 +20,8 @@ CREATE TABLE ref_indice (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO ref_indice (antutu_min, antutu_max, val_A) VALUES 
-(0, 50000, 40),
-(50000, 100000, 44),
+(0, 49999, 40),
+(50000, 99999, 44),
 (100000, 150000, 49);
 
 CREATE TABLE ref_memoire (
@@ -62,15 +62,8 @@ CREATE TABLE smartphone (
   indice_antutu int(11) NOT NULL,
   status ENUM ('0', '1', '2') NOT NULL DEFAULT '0',
   stockage int(11) NOT NULL,
-  Memory int(11) NOT NULL,
+  memory int(11) NOT NULL,
   part_number varchar(255) NOT NULL,
-  val_A_id int(11) UNSIGNED NOT NULL,
-  val_M_id int(11) UNSIGNED NOT NULL,
-  val_S_id int(11) UNSIGNED NOT NULL,
-  val_total_id int(11) UNSIGNED NOT NULL,
-  FOREIGN KEY (modele_id) REFERENCES `modele`(id),
-  FOREIGN KEY (val_A_id) REFERENCES `ref_indice`(id),
-  FOREIGN KEY (val_M_id) REFERENCES `ref_memoire`(id),
-  FOREIGN KEY (val_S_id) REFERENCES `ref_stockage`(id),
-  FOREIGN KEY (val_total_id) REFERENCES `category`(id)
+  ponderation int(11) NOT NULL,
+  FOREIGN KEY (modele_id) REFERENCES `modele`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
