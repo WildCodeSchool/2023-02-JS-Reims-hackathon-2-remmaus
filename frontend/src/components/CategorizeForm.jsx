@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
   const [marques, setMarques] = useState([]);
   const [modeles, setModeles] = useState([]);
   const [selectMarque, setSelectMarque] = useState();
+  const modelRef = useRef();
+  const indiceRef = useRef();
+  const stockageRef = useRef();
+  const memoireRef = useRef();
+  const ponderationRef = useRef();
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
@@ -26,7 +32,36 @@ function CategorizeForm() {
       <h1 className="titleMainMenu">
         Commencer l'Enregistrement de nouveaux téléphones
       </h1>
-      <form action="#" className="form-categorize">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          fetch(
+            `${
+              import.meta.env.VITE_BACKEND_URL ?? "http://localhost:5000"
+            }/smartphones`,
+            {
+              method: "post",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({
+                modele_id: modelRef.current.value,
+                indice: indiceRef.current.value,
+                stockage: stockageRef.current.value,
+                memoire: memoireRef.current.value,
+                ponderation: ponderationRef.current.value,
+              }),
+            }
+          ).then((response) => {
+            if (response.status === 201) {
+              alert(true);
+            } else {
+              alert(false);
+            }
+          });
+        }}
+        className="form-categorize"
+      >
         <div className="form-row">
           <div className="input-data">
             {/* <input type="text" name="modele" id="modele" required />
@@ -38,10 +73,9 @@ function CategorizeForm() {
               name="marque"
               id="marque"
               onChange={(e) => setSelectMarque(e.target.value)}
+              defaultValue=""
             >
-              <option value="" selected>
-                -- Select Marque --
-              </option>
+              <option value="">-- Select Marque --</option>
               {marques.map((marque) => (
                 <option key={marque.marque} value={marque.marque}>
                   {marque.marque}
@@ -49,7 +83,7 @@ function CategorizeForm() {
               ))}
             </select>
             {selectMarque && (
-              <select name="modele" id="modele">
+              <select ref={modelRef} name="modele" id="modele">
                 <option value="" selected>
                   -- Select modele --
                 </option>
@@ -67,10 +101,8 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="ram">
               RAM
             </label>
-            <select name="ram" id="ram">
-              <option value="" selected>
-                -- Select Option --
-              </option>
+            <select ref={memoireRef} name="ram" id="ram" defaultValue="">
+              <option value="">-- Select Option --</option>
               <option value="1">1 Go</option>
               <option value="2">2 Go</option>
               <option value="3">3 Go</option>
@@ -87,10 +119,13 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="stockage">
               Stockage
             </label>
-            <select name="stockage" id="stockage">
-              <option value="" selected>
-                -- Select Option --
-              </option>
+            <select
+              ref={stockageRef}
+              name="stockage"
+              id="stockage"
+              defaultValue=""
+            >
+              <option value="">-- Select Option --</option>
               <option value="8">8 Go</option>
               <option value="16">16 Go</option>
               <option value="32">32 Go</option>
@@ -102,7 +137,13 @@ function CategorizeForm() {
             </select>
           </div>
           <div className="input-data">
-            <input type="text" name="indice" id="indice" required />
+            <input
+              ref={indiceRef}
+              type="text"
+              name="indice"
+              id="indice"
+              required
+            />
             <div className="underline" />
             <label htmlFor="indice">Indice Antutu</label>
           </div>
@@ -111,10 +152,14 @@ function CategorizeForm() {
           <label className="select-label" htmlFor="state">
             Etat du téléphone
           </label>
-          <select name="state" id="state" className="select-bottom">
-            <option value="" selected>
-              -- Select Option --
-            </option>
+          <select
+            ref={ponderationRef}
+            name="state"
+            id="state"
+            className="select-bottom"
+            defaultValue=""
+          >
+            <option value="">-- Select Option --</option>
             <option value="0">DEEE</option>
             <option value="0.5">Réparable</option>
             <option value="0.9">Bloqué</option>
@@ -122,9 +167,11 @@ function CategorizeForm() {
             <option value="1">Reconditionné</option>
           </select>
         </div>
-        <button type="button" className="linkMenu">
-          Confirmez l'enregistrement
-        </button>
+        <Link to="/categorize/confirmation">
+          <button type="submit" className="linkMenu">
+            Confirmez l'enregistrement
+          </button>
+        </Link>
       </form>
     </div>
   );

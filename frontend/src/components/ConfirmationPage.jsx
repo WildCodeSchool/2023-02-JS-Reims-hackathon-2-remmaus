@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LeftMenu from "./LeftMenu";
 
 function ConfirmationPage() {
   const [phoneInfo, setPhoneInfo] = useState(null);
@@ -16,20 +17,23 @@ function ConfirmationPage() {
   }, []);
 
   return (
-    <div className="confirmation-page">
-      <h1>Enregistrement terminé</h1>
-      {phoneInfo && (
-        <div className="phone-info">
-          <h2>Résumé des données du téléphone enregistré :</h2>
-          <p className="phone-info-item">Marque : {phoneInfo.marque}</p>
-          <p className="phone-info-item">Modèle : {phoneInfo.modèle}</p>
-          <p className="phone-info-item">RAM : {phoneInfo.ram}</p>
-          <p className="phone-info-item">Stockage : {phoneInfo.stockage}</p>
-          <p className="phone-info-item">
-            Indice Antutu : {phoneInfo.indiceAntutu}
-          </p>
-        </div>
-      )}
+    <div className="screen">
+      <LeftMenu />
+      <div className="confirmation-page">
+        <h1>Enregistrement terminé</h1>
+        {phoneInfo && (
+          <div className="phone-info">
+            <h2>Résumé des données du téléphone enregistré :</h2>
+            <p className="phone-info-item">Marque : {phoneInfo.marque}</p>
+            <p className="phone-info-item">Modèle : {phoneInfo.modèle}</p>
+            <p className="phone-info-item">RAM : {phoneInfo.ram}</p>
+            <p className="phone-info-item">Stockage : {phoneInfo.stockage}</p>
+            <p className="phone-info-item">
+              Indice Antutu : {phoneInfo.indiceAntutu}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
