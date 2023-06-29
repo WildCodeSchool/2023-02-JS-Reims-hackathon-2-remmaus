@@ -17,6 +17,12 @@ class MemoireManager extends AbstractManager {
       [memoire.title, memoire.id]
     );
   }
+
+  checkMemoire(memoire) {
+    return this.database.query(`select * from  ${this.table} where mem = ?`, [
+      memoire,
+    ]);
+  }
 }
 
 module.exports = MemoireManager;

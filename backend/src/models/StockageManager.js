@@ -17,6 +17,13 @@ class StockageManager extends AbstractManager {
       [stockage.title, stockage.id]
     );
   }
+
+  checkStockage(stockage) {
+    return this.database.query(
+      `select * from  ${this.table} where stockage = ?`,
+      [stockage]
+    );
+  }
 }
 
 module.exports = StockageManager;

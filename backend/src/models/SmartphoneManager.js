@@ -6,14 +6,18 @@ class smartphoneManager extends AbstractManager {
   }
 
   insert(smartphone) {
+    const totalPondere =
+      (smartphone.val_A + smartphone.val_M + smartphone.val_S) *
+      smartphone.ponderation;
     return this.database.query(
-      `insert into ${this.table} (modele_id, indice_antutu, stockage, Memory, part_number) values (?,?,?,?,?)`,
+      `insert into ${this.table} (modele_id, indice_antutu, stockage, Memory, ponderation, total_pondere) values (?,?,?,?,?,?)`,
       [
         smartphone.modele_id,
         smartphone.indice,
         smartphone.stockage,
         smartphone.memoire,
-        smartphone.part_number,
+        smartphone.ponderation,
+        totalPondere,
       ]
     );
   }
@@ -27,7 +31,7 @@ class smartphoneManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT smartphone.id, modele.marque, modele.name, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.part_number, category.name AS category FROM smartphone 
+      `SELECT smartphone.id, modele.marque, modele.name, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone 
       JOIN modele ON modele.id = smartphone.modele_id
       JOIN ref_indice ON ref_indice.antutu_min <= smartphone.indice_antutu AND ref_indice.antutu_max >= smartphone.indice_antutu
       JOIN ref_stockage ON ref_stockage.stockage = smartphone.stockage JOIN ref_memoire ON ref_memoire.mem = smartphone.Memory

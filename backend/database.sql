@@ -63,7 +63,7 @@ CREATE TABLE smartphone (
   status ENUM ('0', '1', '2') NOT NULL DEFAULT '0',
   stockage int(11) NOT NULL,
   memory int(11) NOT NULL,
-  part_number varchar(255) NOT NULL,
   ponderation int(11) NOT NULL,
+  total_pondere float NOT NULL,
   FOREIGN KEY (modele_id) REFERENCES `modele`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
