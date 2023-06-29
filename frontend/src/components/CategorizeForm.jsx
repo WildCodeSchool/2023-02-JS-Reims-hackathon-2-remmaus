@@ -5,11 +5,15 @@ function CategorizeForm() {
   const [marques, setMarques] = useState([]);
   const [modeles, setModeles] = useState([]);
   const [selectMarque, setSelectMarque] = useState();
+  const [selectModele, setSelectModele] = useState();
   const modelRef = useRef();
   const indiceRef = useRef();
   const stockageRef = useRef();
   const memoireRef = useRef();
   const ponderationRef = useRef();
+  const modelNameRef = useRef(null);
+  const marqueNameRef = useRef(null);
+  const prixRef = useRef(null);
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
@@ -43,19 +47,32 @@ function CategorizeForm() {
               headers: {
                 "content-type": "application/json",
               },
-              body: JSON.stringify({
-                modele_id: modelRef.current.value,
-                indice: indiceRef.current.value,
-                stockage: stockageRef.current.value,
-                memoire: memoireRef.current.value,
-                ponderation: ponderationRef.current.value,
-              }),
+              body: JSON.stringify(
+                modelNameRef.current
+                  ? {
+                      model: modelNameRef.current.value,
+                      marque: marqueNameRef.current.value,
+                      prix_ref: prixRef.current.value,
+                      modele_id: modelRef.current.value,
+                      indice: indiceRef.current.value,
+                      stockage: stockageRef.current.value,
+                      memoire: memoireRef.current.value,
+                      ponderation: ponderationRef.current.value,
+                    }
+                  : {
+                      modele_id: modelRef.current.value,
+                      indice: indiceRef.current.value,
+                      stockage: stockageRef.current.value,
+                      memoire: memoireRef.current.value,
+                      ponderation: ponderationRef.current.value,
+                    }
+              ),
             }
           ).then((response) => {
             if (response.status === 201) {
-              alert(true);
+              // alert(true);
             } else {
-              alert(false);
+              // alert(false);
             }
           });
         }}
@@ -68,22 +85,33 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="modele">
               Marque & Modèle
             </label>
-            <select
-              name="marque"
-              id="marque"
-              onChange={(e) => setSelectMarque(e.target.value)}
-            >
-              <option value="" selected>
-                -- Select Marque --
-              </option>
-              {marques.map((marque) => (
-                <option key={marque.marque} value={marque.marque}>
-                  {marque.marque}
+            {selectMarque === "new" ? (
+              <input ref={marqueNameRef} type="text" placeholder="New Marque" />
+            ) : (
+              <select
+                ref={marqueNameRef}
+                name="marque"
+                id="marque"
+                onChange={(e) => setSelectMarque(e.target.value)}
+              >
+                <option value="" selected>
+                  -- Select Marque --
                 </option>
-              ))}
-            </select>
-            {selectMarque && (
-              <select ref={modelRef} name="modele" id="modele">
+                {marques.map((marque) => (
+                  <option key={marque.marque} value={marque.marque}>
+                    {marque.marque}
+                  </option>
+                ))}
+                <option value="new">-- New Marque --</option>
+              </select>
+            )}
+            {selectMarque && selectMarque !== "new" && (
+              <select
+                ref={modelRef}
+                name="modele"
+                id="modele"
+                onChange={(e) => setSelectModele(e.target.value)}
+              >
                 <option value="" selected>
                   -- Select modele --
                 </option>
@@ -94,7 +122,20 @@ function CategorizeForm() {
                       {modele.name}
                     </option>
                   ))}
+                <option value="new">-- New Modele --</option>
               </select>
+            )}
+            {selectMarque === "new" || selectModele === "new" ? (
+              <>
+                <input
+                  ref={modelNameRef}
+                  type="text"
+                  placeholder="New Modele"
+                />
+                <input ref={prixRef} type="text" placeholder="prix ref" />
+              </>
+            ) : (
+              ""
             )}
           </div>
           <div className="input-data">
