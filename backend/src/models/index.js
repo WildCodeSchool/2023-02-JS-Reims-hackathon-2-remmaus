@@ -34,6 +34,11 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
+const CategoryManager = require("./CategoryManager");
+
+models.category = new CategoryManager();
+models.category.setDatabase(pool);
+
 const IndiceManager = require("./IndiceManager");
 
 models.indice = new IndiceManager();

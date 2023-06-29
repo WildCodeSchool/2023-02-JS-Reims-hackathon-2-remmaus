@@ -18,6 +18,13 @@ class IndiceManager extends AbstractManager {
       [indice.antutu_min, indice.antutu_max, indice.val_A]
     );
   }
+
+  checkIndice(indice) {
+    return this.database.query(
+      `select * from  ${this.table} where antutu_min <= ? AND antutu_max >= ?`,
+      [indice, indice]
+    );
+  }
 }
 
 module.exports = IndiceManager;
