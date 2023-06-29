@@ -7,7 +7,7 @@ function QrCode() {
   const url = window.location.href;
   const [value] = useState(url);
   return (
-    <div className="main-menu">
+    <div>
       <h1 className="titleMainMenu">QR Code</h1>
       <center>
         <div className="input-data">
