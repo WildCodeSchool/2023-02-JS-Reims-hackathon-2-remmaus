@@ -22,7 +22,6 @@ body {
 .logo {
   height: 5rem;
   width: 5rem;
-  margin-top: 2rem;
 }
 .title {
   color: #5ba87e;
@@ -245,4 +244,68 @@ select {
 
 .linkLogin {
   max-width: 20em;
+}
+
+.FAQ {
+  text-align: center;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.title {
+  color: #4caf50;
+}
+
+.question {
+  background-color: #002743;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  margin: 2rem;
+}
+
+.question:hover {
+  background-color: #5ba87e;
+}
+
+.question.active {
+  background: #00a65a;
+  color: #ffffff;
+}
+
+.FAQ {
+  text-align: center;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.title {
+  color: #4caf50;
+}
+
+.question {
+  background-color: #002743;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  margin: 2rem;
+}
+
+.question:hover {
+  background-color: #5ba87e;
+}
+
+.question.active {
+  background: #00a65a;
+  color: #ffffff;
 }
