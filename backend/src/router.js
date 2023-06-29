@@ -51,6 +51,7 @@ router.delete("/ref_stockage/:id", stockageControllers.destroy);
 const modeleControllers = require("./controllers/modeleControllers");
 
 router.get("/modeles", modeleControllers.browse);
+router.get("/marques", modeleControllers.marques);
 router.get("/modeles/:id", modeleControllers.read);
 router.put("/modeles/:id", modeleControllers.edit);
 router.post("/modeles", modeleControllers.add);

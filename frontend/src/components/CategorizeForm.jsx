@@ -2,8 +2,17 @@ import { useEffect, useState } from "react";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
+  const [marques, setMarques] = useState([]);
   const [modeles, setModeles] = useState([]);
+  const [selectMarque, setSelectMarque] = useState();
   useEffect(() => {
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMarques(data);
+      });
     fetch(
       `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/modeles`
     )
@@ -23,18 +32,36 @@ function CategorizeForm() {
             {/* <input type="text" name="modele" id="modele" required />
             <div className="underline" /> */}
             <label className="select-label" htmlFor="modele">
-              Modèle
+              Marque & Modèle
             </label>
-            <select name="modele" id="modele">
+            <select
+              name="marque"
+              id="marque"
+              onChange={(e) => setSelectMarque(e.target.value)}
+            >
               <option value="" selected>
-                -- Select Option --
+                -- Select Marque --
               </option>
-              {modeles.map((modele) => (
-                <option key={modele.id} value="modele">
-                  {modele.marque}
+              {marques.map((marque) => (
+                <option key={marque.marque} value={marque.marque}>
+                  {marque.marque}
                 </option>
               ))}
             </select>
+            {selectMarque && (
+              <select name="modele" id="modele">
+                <option value="" selected>
+                  -- Select modele --
+                </option>
+                {modeles
+                  .filter((e) => e.marque === selectMarque)
+                  .map((modele) => (
+                    <option key={modele.id} value={modele.id}>
+                      {modele.name}
+                    </option>
+                  ))}
+              </select>
+            )}
           </div>
           <div className="input-data">
             <label className="select-label" htmlFor="ram">
