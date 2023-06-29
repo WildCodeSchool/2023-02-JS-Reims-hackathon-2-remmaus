@@ -16,7 +16,11 @@ function LeftMenu() {
           Informations
         </button>
       </Link>
-      <h4 className="textLeftMenu">Remmaüs</h4>
+      <Link to="/FAQ" className="linkFaq">
+        <button type="button" className="linkMenu">
+          FAQ
+        </button>
+      </Link>
       <h6 className="textLeftMenu">
         Aurélien / Aylin / Flavien / Julien / Nils{" "}
       </h6>

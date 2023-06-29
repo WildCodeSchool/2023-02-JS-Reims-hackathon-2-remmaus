@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function FAQ() {
   const [expandedQuestion, setExpandedQuestion] = useState(null);
@@ -45,6 +46,13 @@ function FAQ() {
   return (
     <div className="FAQ">
       <header className="header">
+        <Link to="/categorize">
+          <img
+            src="../src/images/back-arrow.png"
+            alt="back-arrow"
+            className="returnButton"
+          />
+        </Link>
         <img src="../src/images/logoremmaus.png" alt="Logo" className="logo" />
       </header>
       <div className="content">

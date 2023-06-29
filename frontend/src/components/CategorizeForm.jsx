@@ -88,11 +88,11 @@ function CategorizeForm() {
             <option value="" selected>
               -- Select Option --
             </option>
-            <option value="-100">DEEE</option>
-            <option value="-50">Réparable</option>
-            <option value="-10">Bloqué</option>
-            <option value="-5">Reconditionnable</option>
-            <option value="0">Reconditionné</option>
+            <option value="0">DEEE</option>
+            <option value="0.5">Réparable</option>
+            <option value="0.9">Bloqué</option>
+            <option value="0.95">Reconditionnable</option>
+            <option value="1">Reconditionné</option>
           </select>
         </div>
         <button type="button" className="linkMenu">
