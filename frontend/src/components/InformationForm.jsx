@@ -6,14 +6,14 @@ function InformationForm() {
       <form action="#" className="form-categorize">
         <div className="form-row">
           <div className="input-data">
-            <input type="text" required />
+            <input type="text" name="id" id="id" required />
             <div className="underline" />
-            <label htmlFor="">ID</label>
+            <label htmlFor="id">ID</label>
           </div>
           <div className="input-data">
-            <input type="text" required />
+            <input type="text" name="modele" id="modele" required />
             <div className="underline" />
-            <label htmlFor="">Modèle</label>
+            <label htmlFor="modele">Modèle</label>
           </div>
         </div>
 

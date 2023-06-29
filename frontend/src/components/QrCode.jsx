@@ -3,8 +3,6 @@ import { useState } from "react";
 import QRCode from "react-qr-code";
 
 function QrCode() {
-  const [back] = useState("#FFFFFF");
-  const [fore] = useState("#000000");
   const [size, setSize] = useState(256);
   const url = window.location.href;
   const [value] = useState(url);
@@ -31,8 +29,8 @@ function QrCode() {
           <QRCode
             title="smartphone QR code"
             value={url}
-            bgColor={back}
-            fgColor={fore}
+            bgColor="#FFFFFF"
+            fgColor="#000000"
             size={size === "" ? 0 : size}
           />
         )}

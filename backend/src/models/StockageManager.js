@@ -6,15 +6,16 @@ class StockageManager extends AbstractManager {
   }
 
   insert(stockage) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      stockage.title,
-    ]);
+    return this.database.query(
+      `insert into ${this.table} (stockage, val_S) values (?)`,
+      [stockage.stockage, stockage.val_S]
+    );
   }
 
   update(stockage) {
     return this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [stockage.title, stockage.id]
+      `update ${this.table} set stockage = ?, val_S = ? where id = ?`,
+      [stockage.stockage, stockage.val_S]
     );
   }
 }

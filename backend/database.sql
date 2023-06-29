@@ -20,8 +20,8 @@ CREATE TABLE ref_indice (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO ref_indice (antutu_min, antutu_max, val_A) VALUES 
-(0, 50000, 40),
-(50000, 100000, 44),
+(0, 49999, 40),
+(50000, 99999, 44),
 (100000, 150000, 49);
 
 CREATE TABLE ref_memoire (
@@ -62,15 +62,24 @@ CREATE TABLE smartphone (
   indice_antutu int(11) NOT NULL,
   status ENUM ('0', '1', '2') NOT NULL DEFAULT '0',
   stockage int(11) NOT NULL,
-  Memory int(11) NOT NULL,
-  part_number varchar(255) NOT NULL,
-  val_A_id int(11) UNSIGNED NOT NULL,
-  val_M_id int(11) UNSIGNED NOT NULL,
-  val_S_id int(11) UNSIGNED NOT NULL,
-  val_total_id int(11) UNSIGNED NOT NULL,
-  FOREIGN KEY (modele_id) REFERENCES `modele`(id),
-  FOREIGN KEY (val_A_id) REFERENCES `ref_indice`(id),
-  FOREIGN KEY (val_M_id) REFERENCES `ref_memoire`(id),
-  FOREIGN KEY (val_S_id) REFERENCES `ref_stockage`(id),
-  FOREIGN KEY (val_total_id) REFERENCES `category`(id)
+  memory int(11) NOT NULL,
+  ponderation int(11) NOT NULL,
+  total_pondere float NOT NULL,
+  FOREIGN KEY (modele_id) REFERENCES `modele`(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO smartphone (modele_id, indice_antutu, stockage, memory, ponderation, total_pondere) VALUES 
+(1, 50000, 16, 6, 0.3, 50),
+(1, 50000, 32, 8, 0.5, 75);
+
+CREATE TABLE user (
+  id INT(11) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  username VARCHAR(80) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  mail VARCHAR(40) NOT NULL UNIQUE,
+  is_admin BOOLEAN DEFAULT FALSE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into user (username, password, mail, is_admin) VALUES
+("admin", "$argon2id$v=19$m=65536,t=5,p=1$LiOUxKuxGlqllBS/orpihg$ztzttCi1WClTHAGgKSZF9xYa579t7gf2P3aqHP1NJZ0", "admin@hackaton.fr", TRUE),
+("user", "$argon2id$v=19$m=65536,t=5,p=1$RplfnZnP/TmoEpfK0ranvg$nlSGwC0krCG6Di+7Mu/8N8JgwL0Or3vzP2kBDNDr86s", "user@hackaton.fr", FALSE);

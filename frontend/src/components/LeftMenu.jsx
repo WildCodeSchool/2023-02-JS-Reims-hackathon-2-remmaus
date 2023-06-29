@@ -4,7 +4,7 @@ function LeftMenu() {
   return (
     <div className="left-menu">
       <Link to="/">
-        <img className="logo" src="../src/assets/logoremmaus.png" alt="" />
+        <img className="logo" src="../src/images/logoremmaus.png" alt="" />
       </Link>
       <Link to="/categorize">
         <button type="button" className="linkMenu">
@@ -16,12 +16,14 @@ function LeftMenu() {
           Informations
         </button>
       </Link>
-      <Link to="/qr-code">
+      <h4 className="textLeftMenu">Remmaüs</h4>
+
+      <Link to="/FAQ" className="linkFaq">
         <button type="button" className="linkMenu">
-          Qr Code
+          FAQ
         </button>
       </Link>
-      <h4 className="textLeftMenu">Remmaüs</h4>
+
       <h6 className="textLeftMenu">
         Aurélien / Aylin / Flavien / Julien / Nils{" "}
       </h6>
