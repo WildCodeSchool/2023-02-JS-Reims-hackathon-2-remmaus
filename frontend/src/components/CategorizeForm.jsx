@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
@@ -142,10 +143,8 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="ram">
               RAM
             </label>
-            <select ref={memoireRef} name="ram" id="ram">
-              <option value="" selected>
-                -- Select Option --
-              </option>
+            <select ref={memoireRef} name="ram" id="ram" defaultValue="">
+              <option value="">-- Select Option --</option>
               <option value="1">1 Go</option>
               <option value="2">2 Go</option>
               <option value="3">3 Go</option>
@@ -162,10 +161,13 @@ function CategorizeForm() {
             <label className="select-label" htmlFor="stockage">
               Stockage
             </label>
-            <select ref={stockageRef} name="stockage" id="stockage">
-              <option value="" selected>
-                -- Select Option --
-              </option>
+            <select
+              ref={stockageRef}
+              name="stockage"
+              id="stockage"
+              defaultValue=""
+            >
+              <option value="">-- Select Option --</option>
               <option value="8">8 Go</option>
               <option value="16">16 Go</option>
               <option value="32">32 Go</option>
@@ -197,10 +199,9 @@ function CategorizeForm() {
             name="state"
             id="state"
             className="select-bottom"
+            defaultValue=""
           >
-            <option value="" selected>
-              -- Select Option --
-            </option>
+            <option value="">-- Select Option --</option>
             <option value="0">DEEE</option>
             <option value="0.5">Réparable</option>
             <option value="0.9">Bloqué</option>
@@ -208,9 +209,11 @@ function CategorizeForm() {
             <option value="1">Reconditionné</option>
           </select>
         </div>
-        <button type="submit" className="linkMenu">
-          Confirmez l'enregistrement
-        </button>
+        <Link to="/categorize/confirmation">
+          <button type="submit" className="linkMenu">
+            Confirmez l'enregistrement
+          </button>
+        </Link>
       </form>
     </div>
   );
