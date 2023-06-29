@@ -294,12 +294,16 @@ select {
 /* Responsive */
 
 .confirmation-page {
+  height: 100vh;
+  width: 80%;
+  background: url(../src/assets/logofond.png);
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px;
 }
 
 .confirmation-page h1 {
