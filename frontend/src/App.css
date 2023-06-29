@@ -230,12 +230,19 @@ select {
   align-items: center;
 }
 
-.content {
+.contentMain {
   background: url(../src/assets/logofond.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 80vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  gap: 5rem;
+  width: 100vh;
+}
+
+.linkLogin {
+  max-width: 20em;
 }
