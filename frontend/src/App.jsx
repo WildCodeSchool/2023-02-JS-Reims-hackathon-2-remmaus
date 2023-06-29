@@ -18,7 +18,10 @@ function App() {
         <Route path="/qr-code" element={<QrCodePage />} />
         <Route path="/info/:id" element="" />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/categorize/confirmation" element={<ConfirmationPage />} />
+        <Route
+          path="/categorize/confirmation/:id"
+          element={<ConfirmationPage />}
+        />
       </Routes>
     </div>
   );
