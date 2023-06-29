@@ -293,6 +293,32 @@ select {
 
 /* Responsive */
 
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.confirmation-page h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00a65a;
+}
+
+.confirmation-page h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.phone-info-item {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
 @media screen and (max-width: 600px) {
   .left-menu {
     display: none;
