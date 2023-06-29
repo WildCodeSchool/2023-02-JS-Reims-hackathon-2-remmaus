@@ -47,7 +47,6 @@ body {
 .label-form {
   display: inline;
 }
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 
 .main-menu form {
   padding: 30px 0 0 0;
@@ -161,4 +160,21 @@ form .form-row {
 
 .textLeftMenu {
   color: #5ba87e;
+}
+
+.select-label {
+  top: -20px;
+}
+
+select {
+  margin-top: 20px;
+  width: 10rem;
+  border: 1px solid #5ba87e;
+  border-radius: 1em;
+  max-height: 2em;
+}
+
+.select-bottom {
+  margin-left: -11em;
+  margin-top: 2rem;
 }
