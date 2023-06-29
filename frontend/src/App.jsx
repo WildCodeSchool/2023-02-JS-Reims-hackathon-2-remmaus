@@ -4,6 +4,7 @@ import "./App.css";
 import Categorize from "./pages/Categorize";
 import Informations from "./pages/Informations";
 import Accueil from "./components/Accueil";
+import FAQ from "./components/FAQ";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/categorize" element={<Categorize />} />
         <Route path="/info" element={<Informations />} />
         <Route path="/info/:id" element="" />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </div>
   );

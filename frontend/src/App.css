@@ -190,6 +190,10 @@ form .form-row {
   color: #5ba87e;
 }
 
+.linkFaq {
+  text-decoration: none;
+}
+
 .greenButton:hover {
   background-color: #5ba87e;
 }
@@ -229,14 +233,21 @@ select {
   align-items: center;
 }
 
-.content {
+.contentMain {
   background: url(../src/assets/logofond.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 80vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  gap: 5rem;
+  width: 100vh;
+}
+
+.linkLogin {
+  max-width: 20em;
 }
 
 .FAQ {
@@ -245,6 +256,9 @@ select {
 
 .content {
   margin-top: 50px;
+  background: url(../src/assets/logofond.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .title {
@@ -271,36 +285,11 @@ select {
   color: #ffffff;
 }
 
-.FAQ {
-  text-align: center;
-}
-
-.content {
-  margin-top: 50px;
-}
-
-.title {
-  color: #4caf50;
-}
-
-.question {
-  background-color: #002743;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 2rem;
-  margin-right: 2rem;
-  cursor: pointer;
-  margin: 2rem;
-}
-
-.question:hover {
-  background-color: #5ba87e;
-}
-
-.question.active {
-  background: #00a65a;
-  color: #ffffff;
+.returnButton {
+  height: 2em;
+  position: absolute;
+  left: 3em;
+  top: 2.5em;
 }
 .confirmation-page {
   display: flex;

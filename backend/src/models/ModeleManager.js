@@ -17,6 +17,10 @@ class modeleManager extends AbstractManager {
       [modele.title, modele.id]
     );
   }
+
+  marques() {
+    return this.database.query(`SELECT DISTINCT(marque) FROM modele`);
+  }
 }
 
 module.exports = modeleManager;
