@@ -70,14 +70,11 @@ function CategorizeForm() {
                     }
               ),
             }
-          ).then((response) => {
-            if (response.status === 201) {
-              // alert(true);
-              nav("/categorize/confirmation");
-            } else {
-              // alert(false);
-            }
-          });
+          )
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => nav(`/categorize/confirmation/${data[0]}`));
         }}
         className="form-categorize"
       >
