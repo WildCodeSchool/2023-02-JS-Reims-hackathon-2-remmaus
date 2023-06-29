@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LeftMenu from "./LeftMenu";
+import QrCode from "./QrCode";
 
 function ConfirmationPage() {
   const [phoneInfo, setPhoneInfo] = useState(null);
@@ -8,7 +9,6 @@ function ConfirmationPage() {
     const fakePhoneInfo = {
       marque: "Samsung",
       modèle: "Galaxy S20",
-      partNumber: "ABC123",
       ram: "8 Go",
       stockage: "128 Go",
       indiceAntutu: "300000",
@@ -34,6 +34,7 @@ function ConfirmationPage() {
             </p>
           </div>
         )}
+        <QrCode />
       </div>
     </div>
   );
