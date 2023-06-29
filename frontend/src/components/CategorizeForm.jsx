@@ -93,11 +93,10 @@ function CategorizeForm() {
                 ref={marqueNameRef}
                 name="marque"
                 id="marque"
+                defaultValue=""
                 onChange={(e) => setSelectMarque(e.target.value)}
               >
-                <option value="" selected>
-                  -- Select Marque --
-                </option>
+                <option value="">-- Select Marque --</option>
                 {marques.map((marque) => (
                   <option key={marque.marque} value={marque.marque}>
                     {marque.marque}
@@ -111,11 +110,10 @@ function CategorizeForm() {
                 ref={modelRef}
                 name="modele"
                 id="modele"
+                defaultValue=""
                 onChange={(e) => setSelectModele(e.target.value)}
               >
-                <option value="" selected>
-                  -- Select modele --
-                </option>
+                <option value="">-- Select modele --</option>
                 {modeles
                   .filter((e) => e.marque === selectMarque)
                   .map((modele) => (
