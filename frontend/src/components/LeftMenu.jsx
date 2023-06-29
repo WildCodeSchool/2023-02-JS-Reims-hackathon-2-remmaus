@@ -16,6 +16,11 @@ function LeftMenu() {
           Informations
         </button>
       </Link>
+      <Link to="/qr-code">
+        <button type="button" className="linkMenu">
+          Qr Code
+        </button>
+      </Link>
       <h4 className="textLeftMenu">Remmaüs</h4>
       <h6 className="textLeftMenu">
         Aurélien / Aylin / Flavien / Julien / Nils{" "}

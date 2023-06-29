@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Categorize from "./pages/Categorize";
 import Informations from "./pages/Informations";
+import QrCodePage from "./pages/QrCodePage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element="" />
         <Route path="/categorize" element={<Categorize />} />
         <Route path="/info" element={<Informations />} />
+        <Route path="/qr-code" element={<QrCodePage />} />
         <Route path="/info/:id" element="" />
       </Routes>
     </div>
