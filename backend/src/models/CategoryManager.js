@@ -6,9 +6,10 @@ class CategoryManager extends AbstractManager {
   }
 
   insert(category) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      category.title,
-    ]);
+    return this.database.query(
+      `insert into ${this.table} (name, marque, prix_ref) values (?,?,?)`,
+      [category.modele, category.marque, category.prix_ref]
+    );
   }
 
   update(category) {

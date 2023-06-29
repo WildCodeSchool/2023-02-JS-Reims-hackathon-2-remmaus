@@ -51,4 +51,22 @@ const checkStockage = (req, res, next) => {
     });
 };
 
-module.exports = { checkIndice, checkMemoire, checkStockage };
+const addCate = (req, res, next) => {
+  if (req.body.modele) {
+    const category = req.body;
+    models.category
+      .insert(category)
+      .then(([result]) => {
+        req.body.modele_id = result.insertId;
+        next();
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  } else {
+    next();
+  }
+};
+
+module.exports = { checkIndice, checkMemoire, checkStockage, addCate };
