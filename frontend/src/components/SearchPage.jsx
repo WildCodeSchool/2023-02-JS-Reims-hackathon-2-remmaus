@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
 
 function SearchPage() {
   const [phones, setPhones] = useState([]);
-
+  // const { id } = useParams();
   useEffect(() => {
     const fakePhoneInfo = {
       marque: "Samsung",
@@ -13,6 +14,15 @@ function SearchPage() {
     };
 
     setPhones(fakePhoneInfo);
+    // fetch(
+    //   `${
+    //     import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"
+    //   }/smartphones/${id}`
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     constole.log(data);
+    //   });
   }, []);
 
   return (
