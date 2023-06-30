@@ -101,7 +101,7 @@ function CategorizeForm() {
                     {marque.marque}
                   </option>
                 ))}
-                <option value="new">-- New Marque --</option>
+                {/* <option value="new">-- New Marque --</option> */}
               </select>
             )}
             {selectMarque && selectMarque !== "new" && (
@@ -120,7 +120,7 @@ function CategorizeForm() {
                       {modele.name}
                     </option>
                   ))}
-                <option value="new">-- New Modele --</option>
+                {/* <option value="new">-- New Modele --</option> */}
               </select>
             )}
             {selectMarque === "new" || selectModele === "new" ? (
