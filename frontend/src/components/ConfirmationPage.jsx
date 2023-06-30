@@ -22,10 +22,9 @@ function ConfirmationPage() {
     <div className="screen">
       <LeftMenu />
       <div className="confirmation-page">
-        <h1>Enregistrement terminé</h1>
         {smartphone && (
           <div className="phone-info">
-            <h2>Résumé des données du téléphone enregistré :</h2>
+            <h2>Résumé des données du téléphone :</h2>
             <p className="phone-info-item">Marque : {smartphone.marque}</p>
             <p className="phone-info-item">Modèle : {smartphone.modele}</p>
             <p className="phone-info-item">RAM : {smartphone.memory}</p>

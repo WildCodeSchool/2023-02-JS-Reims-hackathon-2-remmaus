@@ -18,7 +18,7 @@ function App() {
         <Route path="/categorize" element={<Categorize />} />
         <Route path="/info" element={<Informations />} />
         <Route path="/qr-code" element={<QrCodePage />} />
-        <Route path="/info/result" element={<SearchPage />} />
+        <Route path="/info/result/:id" element={<SearchPage />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/chat" element={<MemberChat />} />
         <Route
