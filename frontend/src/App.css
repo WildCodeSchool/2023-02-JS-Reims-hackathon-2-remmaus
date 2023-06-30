@@ -444,3 +444,12 @@ select {
     transform: rotateY(180deg);
   }
 }
+
+.qrcodeshow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+  align-items: center;
+}
