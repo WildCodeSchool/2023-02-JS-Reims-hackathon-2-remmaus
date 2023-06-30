@@ -4,13 +4,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import logo from "../images/logoremmaus.png";
+
 function LeftMenu() {
   const [menu, setMenu] = useState(false);
   return (
     <>
       <div className={menu ? "left-menu-abso" : "left-menu"}>
         <Link to="/">
-          <img className="logo" src="../src/images/logoremmaus.png" alt="" />
+          <img className="logo" src={logo} alt="" />
         </Link>
         <Link to="/categorize">
           <button type="button" className="linkMenu">

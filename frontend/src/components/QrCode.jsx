@@ -8,7 +8,6 @@ function QrCode() {
   const [value] = useState(url);
   return (
     <div>
-      <h1 className="titleMainMenu">QR Code</h1>
       <div className="input-data">
         <input
           type="number"

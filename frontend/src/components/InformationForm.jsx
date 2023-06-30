@@ -18,7 +18,7 @@ function InformationForm() {
               required
             />
             <div className="underline" />
-            <label htmlFor="id">ID ou Modèle</label>
+            <label htmlFor="id">ID</label>
           </div>
         </div>
         <Link to={`/categorize/confirmation/${info}`}>
