@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LeftMenu from "./LeftMenu";
 
 function SearchPage() {
   const [phones, setPhones] = useState([]);
@@ -16,25 +17,28 @@ function SearchPage() {
   }, []);
 
   return (
-    <div className="search-page">
-      <h1>Résultats de recherche</h1>
-      {phones && (
-        <div className="phone-card">
-          <img
-            className="img-phone"
-            src="../src/images/galaxyS20.jpg"
-            alt="telephone"
-          />
-          <div className="phone-details">
-            <h2>
-              {phones.marque} {phones.modèle}
-            </h2>
-            <p>Ram: {phones.ram}</p>
-            <p>Stockage: {phones.stockage}</p>
-            <p>Indice Antutu: {phones.indiceAntutu}</p>
+    <div className="screen">
+      <LeftMenu />
+      <div className="main-menu">
+        <h1>Résultats de recherche</h1>
+        {phones && (
+          <div className="phone-card">
+            <img
+              className="img-phone"
+              src="../src/images/galaxyS20.jpg"
+              alt="telephone"
+            />
+            <div className="phone-details">
+              <h2>
+                {phones.marque} {phones.modèle}
+              </h2>
+              <p>Ram: {phones.ram}</p>
+              <p>Stockage: {phones.stockage}</p>
+              <p>Indice Antutu: {phones.indiceAntutu}</p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
