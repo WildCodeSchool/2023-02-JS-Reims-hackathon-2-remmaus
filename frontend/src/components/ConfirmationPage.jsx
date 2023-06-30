@@ -27,7 +27,7 @@ function ConfirmationPage() {
           <div className="phone-info">
             <h2>Résumé des données du téléphone enregistré :</h2>
             <p className="phone-info-item">Marque : {smartphone.marque}</p>
-            <p className="phone-info-item">Modèle : {smartphone.name}</p>
+            <p className="phone-info-item">Modèle : {smartphone.modele}</p>
             <p className="phone-info-item">RAM : {smartphone.memory}</p>
             <p className="phone-info-item">Stockage : {smartphone.stockage}</p>
             <p className="phone-info-item">
