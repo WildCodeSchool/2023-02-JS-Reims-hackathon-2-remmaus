@@ -57,7 +57,7 @@ body {
   background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -443,4 +443,13 @@ select {
     right: 0;
     transform: rotateY(180deg);
   }
+}
+
+.qrcodeshow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+  align-items: center;
 }

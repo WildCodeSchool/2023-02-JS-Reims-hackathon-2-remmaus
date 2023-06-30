@@ -8,6 +8,7 @@ import FAQ from "./components/FAQ";
 import MemberChat from "./components/MemberChatForm";
 import QrCodePage from "./pages/QrCodePage";
 import ConfirmationPage from "./components/ConfirmationPage";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/categorize" element={<Categorize />} />
         <Route path="/info" element={<Informations />} />
         <Route path="/qr-code" element={<QrCodePage />} />
-        <Route path="/info/:id" element="" />
+        <Route path="/info/result" element={<SearchPage />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/chat" element={<MemberChat />} />
         <Route

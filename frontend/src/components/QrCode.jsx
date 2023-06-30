@@ -19,18 +19,24 @@ function QrCode() {
         />
         <div className="underline" />
       </div>
-      {value && (
-        <QRCode
-          title="smartphone QR code"
-          value={url}
-          bgColor="#FFFFFF"
-          fgColor="#000000"
-          size={size === "" ? 0 : size}
-        />
-      )}
-      <button type="button" onClick={() => window.print()} className="linkMenu">
-        Imprimer le QR code
-      </button>
+      <div className="qrcodeshow">
+        {value && (
+          <QRCode
+            title="smartphone QR code"
+            value={url}
+            bgColor="#FFFFFF"
+            fgColor="#000000"
+            size={size === "" ? 0 : size}
+          />
+        )}
+        <button
+          type="button"
+          onClick={() => window.print()}
+          className="linkMenu"
+        >
+          Imprimer le QR code
+        </button>
+      </div>
     </div>
   );
 }
