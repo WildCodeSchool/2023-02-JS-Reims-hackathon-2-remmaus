@@ -1,37 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 function CategorizeForm() {
-  const [marques, setMarques] = useState([]);
-  const [modeles, setModeles] = useState([]);
-  const [selectMarque, setSelectMarque] = useState();
-  const [selectModele, setSelectModele] = useState();
-  const modelRef = useRef();
+  // const [marques, setMarques] = useState([]);
+  // const [modeles, setModeles] = useState([]);
   const indiceRef = useRef();
   const stockageRef = useRef();
   const memoireRef = useRef();
   const ponderationRef = useRef();
-  const modelNameRef = useRef(null);
-  const marqueNameRef = useRef(null);
-  const prixRef = useRef(null);
+  const modelNameRef = useRef();
+  const marqueNameRef = useRef();
   const nav = useNavigate();
-  useEffect(() => {
-    fetch(
-      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMarques(data);
-      });
-    fetch(
-      `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/modeles`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setModeles(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/marques`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setMarques(data);
+  //     });
+  //   fetch(
+  //     `${import.meta.env.VITE_BACKEND_URL ?? "http://localhost:6000"}/modeles`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setModeles(data);
+  //     });
+  // }, []);
   return (
     <div className="main-menu">
       <h1 className="titleMainMenu">
@@ -49,26 +45,14 @@ function CategorizeForm() {
               headers: {
                 "content-type": "application/json",
               },
-              body: JSON.stringify(
-                modelNameRef.current
-                  ? {
-                      model: modelNameRef.current.value,
-                      marque: marqueNameRef.current.value,
-                      prix_ref: prixRef.current.value,
-                      modele_id: modelRef.current.value,
-                      indice: indiceRef.current.value,
-                      stockage: stockageRef.current.value,
-                      memoire: memoireRef.current.value,
-                      ponderation: ponderationRef.current.value,
-                    }
-                  : {
-                      modele_id: modelRef.current.value,
-                      indice: indiceRef.current.value,
-                      stockage: stockageRef.current.value,
-                      memoire: memoireRef.current.value,
-                      ponderation: ponderationRef.current.value,
-                    }
-              ),
+              body: JSON.stringify({
+                model: modelNameRef.current.value,
+                marque: marqueNameRef.current.value,
+                indice: indiceRef.current.value,
+                stockage: stockageRef.current.value,
+                memoire: memoireRef.current.value,
+                ponderation: ponderationRef.current.value,
+              }),
             }
           )
             .then((response) => {
@@ -80,61 +64,26 @@ function CategorizeForm() {
       >
         <div className="form-row">
           <div className="input-data">
-            {/* <input type="text" name="modele" id="modele" required />
-            <div className="underline" /> */}
+            <input
+              ref={marqueNameRef}
+              type="text"
+              name="marque"
+              id="marque"
+              placeholder="marque"
+              required
+            />
+            <input
+              ref={modelNameRef}
+              type="text"
+              name="modele"
+              id="modele"
+              placeholder="modele"
+              required
+            />
+            <div className="underline" />
             <label className="select-label" htmlFor="modele">
               Marque & Modèle
             </label>
-            {selectMarque === "new" ? (
-              <input ref={marqueNameRef} type="text" placeholder="New Marque" />
-            ) : (
-              <select
-                ref={marqueNameRef}
-                name="marque"
-                id="marque"
-                defaultValue=""
-                onChange={(e) => setSelectMarque(e.target.value)}
-              >
-                <option value="">-- Select Marque --</option>
-                {marques.map((marque) => (
-                  <option key={marque.marque} value={marque.marque}>
-                    {marque.marque}
-                  </option>
-                ))}
-                {/* <option value="new">-- New Marque --</option> */}
-              </select>
-            )}
-            {selectMarque && selectMarque !== "new" && (
-              <select
-                ref={modelRef}
-                name="modele"
-                id="modele"
-                defaultValue=""
-                onChange={(e) => setSelectModele(e.target.value)}
-              >
-                <option value="">-- Select modele --</option>
-                {modeles
-                  .filter((e) => e.marque === selectMarque)
-                  .map((modele) => (
-                    <option key={modele.id} value={modele.id}>
-                      {modele.name}
-                    </option>
-                  ))}
-                {/* <option value="new">-- New Modele --</option> */}
-              </select>
-            )}
-            {selectMarque === "new" || selectModele === "new" ? (
-              <>
-                <input
-                  ref={modelNameRef}
-                  type="text"
-                  placeholder="New Modele"
-                />
-                <input ref={prixRef} type="text" placeholder="prix ref" />
-              </>
-            ) : (
-              ""
-            )}
           </div>
           <div className="input-data">
             <label className="select-label" htmlFor="ram">

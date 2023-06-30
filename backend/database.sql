@@ -68,19 +68,19 @@ INSERT INTO modele (name, marque, prix_ref) VALUES
 
 CREATE TABLE smartphone (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  modele_id int(11) UNSIGNED NOT NULL,
   indice_antutu int(11) NOT NULL,
   status ENUM ('0', '1', '2') NOT NULL DEFAULT '0',
   stockage int(11) NOT NULL,
   memory int(11) NOT NULL,
   ponderation int(11) NOT NULL,
   total_pondere float NOT NULL,
-  FOREIGN KEY (modele_id) REFERENCES `modele`(id)
+  modele varchar(255) NOT NULL,
+  marque varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO smartphone (modele_id, indice_antutu, stockage, memory, ponderation, total_pondere) VALUES 
-(1, 50000, 16, 6, 0.3, 50),
-(1, 50000, 32, 8, 0.5, 75);
+INSERT INTO smartphone (marque, modele, indice_antutu, stockage, memory, ponderation, total_pondere) VALUES 
+('iphone6', 'APPLE', 50000, 16, 6, 0.3, 50),
+('iphone6', 'APPLE', 50000, 32, 8, 0.5, 75);
 
 CREATE TABLE user (
   id INT(11) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
