@@ -32,7 +32,7 @@ class smartphoneManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT smartphone.id, smartphone.marque, smartphone.modele, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone
+      `SELECT smartphone.id, smartphone.marque, smartphone.modele, smartphone.indice_antutu AS antutu,category.prix, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone
       JOIN ref_indice ON ref_indice.antutu_min <= smartphone.indice_antutu AND ref_indice.antutu_max >= smartphone.indice_antutu
       JOIN ref_stockage ON ref_stockage.stockage = smartphone.stockage JOIN ref_memoire ON ref_memoire.mem = smartphone.Memory
       JOIN category ON category.val_total_min <= (ref_stockage.val_S + ref_memoire.val_M + ref_indice.val_A) AND category.val_total_max >= (ref_stockage.val_S+ref_memoire.val_M+ref_indice.val_A)`
@@ -41,7 +41,7 @@ class smartphoneManager extends AbstractManager {
 
   find(id) {
     return this.database.query(
-      `SELECT smartphone.id, smartphone.marque, smartphone.modele, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone
+      `SELECT smartphone.id, smartphone.marque,category.prix, smartphone.modele, smartphone.indice_antutu AS antutu, smartphone.status, smartphone.stockage, smartphone.memory, smartphone.ponderation, category.name AS category FROM smartphone
       JOIN ref_indice ON ref_indice.antutu_min <= smartphone.indice_antutu AND ref_indice.antutu_max >= smartphone.indice_antutu
       JOIN ref_stockage ON ref_stockage.stockage = smartphone.stockage JOIN ref_memoire ON ref_memoire.mem = smartphone.Memory
       JOIN category ON category.val_total_min <= (ref_stockage.val_S + ref_memoire.val_M + ref_indice.val_A) AND category.val_total_max >= (ref_stockage.val_S+ref_memoire.val_M+ref_indice.val_A) where smartphone.id = ?`,

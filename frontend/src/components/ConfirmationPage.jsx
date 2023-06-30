@@ -32,6 +32,7 @@ function ConfirmationPage() {
             <p className="phone-info-item">
               Indice Antutu : {smartphone.antutu}
             </p>
+            <p className="phone-info-item">Prix : {smartphone.prix}</p>
           </div>
         )}
         <QrCode />

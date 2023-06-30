@@ -2,15 +2,16 @@ CREATE TABLE category (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   val_total_min int(11) NULL,
   val_total_max int(11) NULL,
+  prix int(11) NULL,
   name varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO category (val_total_min, val_total_max, name) VALUES 
-(0, 89, 'HC'),
-(90, 165, 'C'),
-(166, 255, 'B'),
-(256, 375, 'A'),
-(376, null, 'Premium');
+INSERT INTO category (val_total_min, val_total_max, name, prix) VALUES 
+(0, 89, 'HC', 0),
+(90, 165, 'C', 20),
+(166, 255, 'B', 40),
+(256, 375, 'A', 60),
+(376, null, 'Premium', 80);
 
 CREATE TABLE ref_indice (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
