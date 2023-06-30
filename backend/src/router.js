@@ -6,7 +6,6 @@ const {
   checkIndice,
   checkMemoire,
   checkStockage,
-  addCate,
 } = require("./services/middleware");
 
 const itemControllers = require("./controllers/itemControllers");
@@ -65,7 +64,6 @@ router.get("/smartphones/:id", smartphoneControllers.read);
 router.put("/smartphones/:id", smartphoneControllers.edit);
 router.post(
   "/smartphones",
-  addCate,
   checkIndice,
   checkMemoire,
   checkStockage,
